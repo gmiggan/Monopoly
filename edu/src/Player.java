@@ -6,15 +6,15 @@ import java.util.Hashtable;
 
 public class Player {
 	// the key of colorGroups is the name of the color group.
-	private Hashtable colorGroups = new Hashtable();
+	private Hashtable<String, Integer> colorGroups = new Hashtable<String, Integer>();
 	private boolean inJail;
 	private int money;
 	private String name;
 
 	private Cell position;
-	private ArrayList properties = new ArrayList();
-	private ArrayList railroads = new ArrayList();
-	private ArrayList utilities = new ArrayList();
+	private ArrayList<PropertyCell> properties = new ArrayList<PropertyCell>();
+	private ArrayList<IOwnable> railroads = new ArrayList<IOwnable>();
+	private ArrayList<IOwnable> utilities = new ArrayList<IOwnable>();
 
 	public Player() {
 		GameBoard gb = GameMaster.instance().getGameBoard();
@@ -24,8 +24,8 @@ public class Player {
 		}
 	}
 
-	public void buyProperty(Cell property, int amount) {
-		property.setOwner(this);
+	public void buyProperty(IOwnable property, int amount) {
+		property.setTheOwner(this);
 		if (property instanceof PropertyCell) {
 			PropertyCell cell = (PropertyCell) property;
 			properties.add(cell);
@@ -63,7 +63,7 @@ public class Player {
 	public void exchangeProperty(Player player) {
 		for (int i = 0; i < getPropertyNumber(); i++) {
 			PropertyCell cell = getProperty(i);
-			cell.setOwner(player);
+			cell.setTheOwner(player);
 			if (player == null) {
 				cell.setAvailable(true);
 				cell.setNumHouses(0);
@@ -76,12 +76,12 @@ public class Player {
 		properties.clear();
 	}
 
-	public Cell[] getAllProperties() {
-		ArrayList list = new ArrayList();
+	public IOwnable[] getAllProperties() {
+		ArrayList<IOwnable> list = new ArrayList<IOwnable>();
 		list.addAll(properties);
 		list.addAll(utilities);
 		list.addAll(railroads);
-		return (Cell[]) list.toArray(new Cell[list.size()]);
+		return (IOwnable[]) list.toArray(new IOwnable[list.size()]);
 	}
 
 	public int getMoney() {
@@ -89,8 +89,8 @@ public class Player {
 	}
 
 	public String[] getMonopolies() {
-		ArrayList monopolies = new ArrayList();
-		Enumeration colors = colorGroups.keys();
+		ArrayList<String> monopolies = new ArrayList<String>();
+		Enumeration<String> colors = colorGroups.keys();
 		while (colors.hasMoreElements()) {
 			String color = (String) colors.nextElement();
 			if (!(color.equals(RailRoadCell.COLOR_GROUP))
@@ -172,7 +172,7 @@ public class Player {
 
 	public void purchase() {
 		if (getPosition().isAvailable()) {
-			Cell c = getPosition();
+			IOwnable c = getPosition();
 			c.setAvailable(false);
 			if (c instanceof PropertyCell) {
 				PropertyCell cell = (PropertyCell) c;
@@ -216,8 +216,8 @@ public class Player {
 		buyProperty(cell, cell.getPrice());
 	}
 
-	public void sellProperty(Cell property, int amount) {
-		property.setOwner(null);
+	public void sellProperty(IOwnable property, int amount) {
+		property.setTheOwner(null);
 		if (property instanceof PropertyCell) {
 			properties.remove(property);
 		}
@@ -251,8 +251,8 @@ public class Player {
 	}
 
 	public void resetProperty() {
-		properties = new ArrayList();
-		railroads = new ArrayList();
-		utilities = new ArrayList();
+		properties = new ArrayList<PropertyCell>();
+		railroads = new ArrayList<IOwnable>();
+		utilities = new ArrayList<IOwnable>();
 	}
 }

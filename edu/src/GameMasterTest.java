@@ -49,7 +49,7 @@ public class GameMasterTest extends TestCase {
 		gameMaster.btnEndTurnClicked();
 		TradeDialog dialog = gui.openTradeDialog();
 		assertEquals(1, gameMaster.getNumberOfSellers());
-		ArrayList sellerList = gameMaster.getSellerList();
+		ArrayList<Player> sellerList =  gameMaster.getSellerList();
 		assertEquals(gameMaster.getPlayer(0), sellerList.get(0));
 		TradeDeal deal = dialog.getTradeDeal();
 		RespondDialog respond = gui.openRespondDialog(deal);

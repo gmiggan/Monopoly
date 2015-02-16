@@ -11,7 +11,7 @@ public class GameMaster {
 	private GameBoard gameBoard;
 	private MonopolyGUI gui;
 	private int initAmountOfMoney;
-	private ArrayList players = new ArrayList();
+	private ArrayList<Player> players = new ArrayList<Player>();
 	private int turn = 0;
 	private int utilDiceRoll;
 	private boolean testMode;
@@ -117,7 +117,7 @@ public class GameMaster {
 
 	public void completeTrade(TradeDeal deal) {
 		Player seller = getPlayer(deal.getPlayerIndex());
-		Cell property = gameBoard.queryCell(deal.getPropertyName());
+		IOwnable property = gameBoard.queryCell(deal.getPropertyName());
 		seller.sellProperty(property, deal.getAmount());
 		getCurrentPlayer().buyProperty(property, deal.getAmount());
 	}
@@ -166,9 +166,9 @@ public class GameMaster {
 		return players.indexOf(player);
 	}
 
-	public ArrayList getSellerList() {
-		ArrayList sellers = new ArrayList();
-		for (Iterator iter = players.iterator(); iter.hasNext();) {
+	public ArrayList<Player> getSellerList() {
+		ArrayList<Player> sellers = new ArrayList<Player>();
+		for (Iterator<Player> iter = players.iterator(); iter.hasNext();) {
 			Player player = (Player) iter.next();
 			if (player != getCurrentPlayer())
 				sellers.add(player);
