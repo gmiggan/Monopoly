@@ -17,7 +17,11 @@ import src.*;
 
 public class PlayerPanel extends JPanel {
 
-    private JButton btnBuyHouse;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JButton btnBuyHouse;
     private JButton btnDrawCard;
     private JButton btnEndTurn;
     private JButton btnGetOutOfJail;

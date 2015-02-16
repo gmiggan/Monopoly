@@ -75,7 +75,7 @@ public class Main {
 			GameMaster.instance().getPlayer(i).setName(name);
 		}
 		window.setupGameBoard(gameBoard);
-		window.show();
+		window.setVisible(true); //.show();
 		master.setGUI(window);
 		master.startGame();
 	}

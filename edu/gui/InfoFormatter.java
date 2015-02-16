@@ -5,11 +5,11 @@ import java.util.Hashtable;
 import src.*;
 
 public class InfoFormatter {
-    static Hashtable cellInfoFormatters = null;
+    static Hashtable<Class<?>, CellInfoFormatter> cellInfoFormatters = null;
     
     static {
         if (cellInfoFormatters == null) {
-            cellInfoFormatters = new Hashtable();
+            cellInfoFormatters = new Hashtable<Class<?>, CellInfoFormatter>();
             addFormatters();
         }
     }

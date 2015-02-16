@@ -9,6 +9,10 @@ import src.*;
 
 public class GUICell extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Cell cell;
 	private JLabel lblInfo;
 	private JLabel[] lblPlayers = new JLabel[GameMaster.MAX_PLAYER];

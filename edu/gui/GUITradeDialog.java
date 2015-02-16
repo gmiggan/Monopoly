@@ -10,8 +10,13 @@ import javax.swing.*;
 import src.*;
 
 public class GUITradeDialog extends JDialog implements TradeDialog {
-    private JButton btnOK, btnCancel;
-    private JComboBox cboSellers, cboProperties;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JButton btnOK, btnCancel;
+    private JComboBox<Player> cboSellers;
+    private JComboBox<IOwnable> cboProperties;
 
     private TradeDeal deal;
     private JTextField txtAmount;
@@ -20,8 +25,8 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
         super(parent);
         
         setTitle("Trade Property");
-        cboSellers = new JComboBox();
-        cboProperties = new JComboBox();
+        cboSellers = new JComboBox<Player>();
+        cboProperties = new JComboBox<IOwnable>();
         txtAmount = new JTextField();
         btnOK = new JButton("OK");
         btnCancel = new JButton("Cancel");
@@ -44,7 +49,7 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
         
         btnCancel.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-                GUITradeDialog.this.hide();
+                GUITradeDialog.this.setVisible(false);//hide();
             }
         });
         
@@ -75,7 +80,7 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
 	                deal.setPropertyName(cell.getName());
 	                deal.setSellerIndex(GameMaster.instance().getPlayerIndex(player));
                 }
-                hide();
+                setVisible(false); // hide();
             }
         });
         

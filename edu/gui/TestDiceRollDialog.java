@@ -14,7 +14,11 @@ import javax.swing.JTextField;
 
 
 public class TestDiceRollDialog extends JDialog {
-    private JButton btnOK, btnCancel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JButton btnOK, btnCancel;
     private JTextField txtDiceRoll;
     private int[] diceRoll;
     
@@ -37,7 +41,7 @@ public class TestDiceRollDialog extends JDialog {
         
         btnCancel.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-                TestDiceRollDialog.this.hide();
+                TestDiceRollDialog.this.setVisible(true); //.hide();
                 diceRoll = new int[2];
                 diceRoll[0] = 0;
                 diceRoll[1] = 0;
@@ -65,7 +69,7 @@ public class TestDiceRollDialog extends JDialog {
 	                	diceRoll[1] = (amount / 2) + 1;
 	                }
                 }
-                hide();
+                setVisible(false);//hide();
             }
         });
         

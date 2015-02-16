@@ -10,6 +10,7 @@ import src.RespondDialog;
 import src.TradeDeal;
 
 
+@SuppressWarnings("serial")
 public class GUIRespondDialog extends JDialog implements RespondDialog {
     private boolean response;
     JTextArea txtMessage = new JTextArea();
@@ -32,14 +33,14 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
         btnYes.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 response = true;
-                hide();
+                setVisible(false);//hide();
             }
         });
 
         btnNo.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 response = false;
-                hide();
+               setVisible(false); //hide();
             }
         });
     

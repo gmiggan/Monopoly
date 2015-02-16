@@ -19,6 +19,10 @@ import javax.swing.border.LineBorder;
 import src.*;
 
 public class MainWindow extends JFrame implements MonopolyGUI{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JPanel eastPanel = new JPanel();
 	ArrayList<GUICell> guiCells = new ArrayList<GUICell>();
 
@@ -87,7 +91,7 @@ public class MainWindow extends JFrame implements MonopolyGUI{
 
 	public int[] getDiceRoll() {
 		TestDiceRollDialog dialog = new TestDiceRollDialog(this);
-		dialog.show();
+		dialog.setVisible(true);  //.show();
 		return dialog.getDiceRoll();
 	}
 
@@ -120,13 +124,13 @@ public class MainWindow extends JFrame implements MonopolyGUI{
     public RespondDialog openRespondDialog(TradeDeal deal) {
         GUIRespondDialog dialog = new GUIRespondDialog();
         dialog.setDeal(deal);
-        dialog.show();
+        dialog.setVisible(true); //show();
         return dialog;
     }
 
     public TradeDialog openTradeDialog() {
         GUITradeDialog dialog = new GUITradeDialog(this);
-        dialog.show();
+        dialog.setVisible(true); //.show();
         return dialog;
     }
 	
@@ -188,7 +192,7 @@ public class MainWindow extends JFrame implements MonopolyGUI{
 
     public void showBuyHouseDialog(Player currentPlayer) {
         BuyHouseDialog dialog = new BuyHouseDialog(currentPlayer);
-        dialog.show();
+        dialog.setVisible(true); //.show();
     }
 
     public void showMessage(String msg) {

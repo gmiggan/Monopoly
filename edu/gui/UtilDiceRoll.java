@@ -14,9 +14,14 @@ import src.GameMaster;
 
 public class UtilDiceRoll extends JDialog {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static int showDialog() {
 		UtilDiceRoll dialog = new UtilDiceRoll();
-		dialog.show();
+		dialog.setVisible(true); //.show();
 		return dialog.diceValue;
 	}
 	JButton btnDice = new JButton("Roll the Dice!");
