@@ -1,7 +1,8 @@
 package src;
 
-public class GameBoardCCMovePlayer extends GameBoard {
-	public GameBoardCCMovePlayer() {
+public class GameBoardCC extends GameBoard {
+
+	public GameBoardCC() {
 		super();
 		PropertyCell blue1 = new PropertyCell();
 		PropertyCell blue2 = new PropertyCell();
@@ -9,8 +10,8 @@ public class GameBoardCCMovePlayer extends GameBoard {
 		JailCell jail = new JailCell();
 		CardCell chance1 = new CardCell(Card.TYPE_CHANCE, "Chance 1");
 
-		
 
+		
 		blue1.setName("Blue 1");
 		blue2.setName("Blue 2");
 
@@ -25,20 +26,12 @@ public class GameBoardCCMovePlayer extends GameBoard {
 
 		blue1.setHousePrice(50);
 		blue2.setHousePrice(50);
-		
-		addCell(blue1);
+
 		addCell(cc1);
+		addCell(blue1);
 		addCell(jail);
 		addCell(blue2);
-		addCell(chance1);
+		addCell(chance1);	
+		}
 
-		Card ccCard1 = new MovePlayerCard("Blue 1", Card.TYPE_CC);
-		Card ccCard2 = new MovePlayerCard("Blue 2", Card.TYPE_CC);
-		Card chanceCard1 = new MovePlayerCard("Blue 1", Card.TYPE_CHANCE);
-		
-		addCard(ccCard1);
-		addCard(ccCard2);
-
-
-	}
 }
