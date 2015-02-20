@@ -2,7 +2,8 @@ package src;
 
 public class CardCell extends Cell {
 	private int type;
-	private boolean available = true;
+	protected Player theOwner;
+	
 
 	public CardCell(int type, String name) {
 		setName(name);
@@ -14,6 +15,16 @@ public class CardCell extends Cell {
 
 	public int getType() {
 		return type;
+	}
+
+	@Override
+	public Player getTheOwner() {
+		return theOwner;
+	}
+
+	@Override
+	public void setTheOwner(Player theOwner) {
+		this.theOwner = theOwner;
 	}
 
 	

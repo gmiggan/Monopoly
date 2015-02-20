@@ -2,7 +2,9 @@ package src;
 
 public class FreeParkingCell extends Cell {
 
-	private boolean available = true;
+	
+
+	protected Player theOwner;
 
 	public FreeParkingCell() {
 		setName("Free Parking");
@@ -10,6 +12,16 @@ public class FreeParkingCell extends Cell {
 
 	public void playAction() {
 		return;
+	}
+
+	@Override
+	public Player getTheOwner() {
+		return theOwner;
+	}
+
+	@Override
+	public void setTheOwner(Player theOwner) {
+		this.theOwner = theOwner;
 	}
 
 	
