@@ -1,6 +1,6 @@
 package src;
 
-public class GameBoardCC extends GameBoard {
+public abstract class GameBoardCC extends GameBoard {
 
 	public GameBoardCC() {
 		super();

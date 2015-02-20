@@ -1,7 +1,6 @@
 package src;
 
 public abstract class Cell implements IOwnable {
-	private boolean available = true;
 	private String name;
 	protected Player theOwner;
 
@@ -21,23 +20,12 @@ public abstract class Cell implements IOwnable {
 		return 0;
 	}
 
-	/* (non-Javadoc)
-	 * @see src.IOwnable#isAvailable()
-	 */
-	@Override
-	public boolean isAvailable() {
-		return available;
-	}
-
 	public abstract void playAction();
 
 	/* (non-Javadoc)
 	 * @see src.IOwnable#setAvailable(boolean)
 	 */
-	@Override
-	public void setAvailable(boolean available) {
-		this.available = available;
-	}
+	
 
 	void setName(String name) {
 		this.name = name;

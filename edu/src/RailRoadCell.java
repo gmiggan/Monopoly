@@ -1,6 +1,6 @@
 package src;
 
-public class RailRoadCell extends Cell {
+public class RailRoadCell extends OwnableCell {
 	static private int baseRent;
 	static public String COLOR_GROUP = "RAILROAD";
 	static private int price;

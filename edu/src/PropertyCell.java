@@ -1,6 +1,6 @@
 package src;
 
-public class PropertyCell extends Cell {
+public class PropertyCell extends OwnableCell {
 	private String colorGroup;
 	private int housePrice;
 	private int numHouses;

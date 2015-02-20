@@ -2,6 +2,8 @@ package src;
 
 public class GoToJailCell extends Cell {
 
+	private boolean available = true;
+
 	public GoToJailCell() {
 		setName("Go to Jail");
 	}
@@ -12,4 +14,6 @@ public class GoToJailCell extends Cell {
 				.queryCell("Jail"));
 		GameMaster.instance().sendToJail(currentPlayer);
 	}
+
+	
 }

@@ -5,7 +5,7 @@ public class GameBoardCCLoseMoney extends GameBoardCC {
 		super();
 		
 		Card ccCard1 = new MoneyCard("Pay $20", -20, Card.TYPE_CC);
-		Card chanceCard1 = new MoneyCard("Pay $30", -30, Card.TYPE_CHANCE);
+		//Card chanceCard1 = new MoneyCard("Pay $30", -30, Card.TYPE_CHANCE);
 		addCard(ccCard1);
 
 

@@ -171,9 +171,11 @@ public class Player {
 	}
 
 	public void purchase() {
-		if (getPosition().isAvailable()) {
+		if(getPosition() instanceof OwnableCell)
+		{
+		if (((OwnableCell) getPosition()).isAvailable()) {
 			IOwnable c = getPosition();
-			c.setAvailable(false);
+			((OwnableCell) c).setAvailable(false);
 			if (c instanceof PropertyCell) {
 				PropertyCell cell = (PropertyCell) c;
 				purchaseProperty(cell);
@@ -186,6 +188,7 @@ public class Player {
 				UtilityCell cell = (UtilityCell) c;
 				purchaseUtility(cell);
 			}
+		}
 		}
 	}
 

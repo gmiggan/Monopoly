@@ -2,6 +2,8 @@ package src;
 
 public class FreeParkingCell extends Cell {
 
+	private boolean available = true;
+
 	public FreeParkingCell() {
 		setName("Free Parking");
 	}
@@ -9,4 +11,6 @@ public class FreeParkingCell extends Cell {
 	public void playAction() {
 		return;
 	}
+
+	
 }

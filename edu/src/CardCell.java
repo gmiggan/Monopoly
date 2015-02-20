@@ -2,6 +2,7 @@ package src;
 
 public class CardCell extends Cell {
 	private int type;
+	private boolean available = true;
 
 	public CardCell(int type, String name) {
 		setName(name);
@@ -14,4 +15,6 @@ public class CardCell extends Cell {
 	public int getType() {
 		return type;
 	}
+
+	
 }

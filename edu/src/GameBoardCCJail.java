@@ -8,7 +8,7 @@ public class GameBoardCCJail extends GameBoardCC {
 
 		
 		Card ccCard1 = new JailCard(Card.TYPE_CC);
-		Card chanceCard1 = new JailCard(Card.TYPE_CHANCE);
+	//	Card chanceCard1 = new JailCard(Card.TYPE_CHANCE);
 		addCard(ccCard1);
 
 		

@@ -1,6 +1,6 @@
 package src;
 
-public class UtilityCell extends Cell {
+public class UtilityCell extends OwnableCell {
 
 	public static final String COLOR_GROUP = "UTILITY";
 	private static int PRICE;
